@@ -6,6 +6,9 @@ body {
 	padding: 0;
 	margin: 0;
 	height: 100%;
+	background-image: url('images/bg3.jpg');
+	background-attachment: fixed;
+	background-position: 50% 0px;
 }
 
 .theme-default #slider {
@@ -131,8 +134,7 @@ body {
 	height: 28px;
 	position: relative;
 	float: left;
-	background-color: transparent;
-	background: none;
+	background-color: #FFF;
 	margin: 0px;
 	padding: 0 10px;
 	border: 1px solid #dedede;
@@ -272,6 +274,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align:center; /*Specify the alignment of the whole UL if UL is not width:100%;*/
     letter-spacing:normal;
+	background-color: #f3f3f3;
 }
 
 #ddmenu ul
