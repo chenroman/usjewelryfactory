@@ -477,7 +477,15 @@ border-bottom:1px solid #333;
     display:none; /* hide menu icon initially */
 }
 
-
+.product {
+		
+}
+.product_title {
+	font-family: "Myriad Pro", PTSansCaptionRegular, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	text-align: center;	
+	margin-top: 20px;
+}
 
 /*styles for mobile*/
 @media only screen and (max-width: 480px) 
