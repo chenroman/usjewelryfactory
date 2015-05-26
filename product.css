@@ -6,9 +6,10 @@
 	font-family: Arial, sans-serif;
 	font-size: 20px;
 	height: 28px;
-	background: #d4e8fc;
+	background: #555555;
 	vertical-align: middle;
 	padding: 5px;
+	color: #FFF;
 }
 .liori_nav, .liori_nav a {
 	font-family: Arial, sans-serif;
