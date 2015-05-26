@@ -113,6 +113,7 @@
 	cursor:pointer;
 	display: inline-block;
 	vertical-align: top;
+	border-radius: 4px 4px 0 0;
 }
 .ebaytab:hover {
 	background-color: #ffffff;
