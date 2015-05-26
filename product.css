@@ -1,8 +1,4 @@
-.liori_title {
-	font-family: "Myriad Pro", PTSansCaptionRegular, Arial, Helvetica, sans-serif;
-	font-size: 24px;
-}
-.liori_spec_title {
+.usjewelry_spec_title {
 	font-family: Arial, sans-serif;
 	font-size: 20px;
 	height: 28px;
@@ -11,93 +7,15 @@
 	padding: 5px;
 	color: #FFF;
 }
-.liori_nav, .liori_nav a {
-	font-family: Arial, sans-serif;
-	font-size: 12px;
-	color: #656565;
-	text-decoration: none;
-	height: 34px;
-}
-.liori_nav a:hover {
-	font-family: Arial, sans-serif;
-	font-size: 12px;
-	color: #477da3;
-	text-decoration: underline;
-}
-.liori_menu {
-	height: 30px;
-	background: #d4e8fc;
-	vertical-align: middle;
-}
-.liori_menu a {
-	font-family: Arial, sans-serif;
-			font-size: 15px;
-			color: #000000;
-			text-transform: uppercase;
-			text-decoration: none;
-			font-weight: bold;
-	padding-left:15px;
-	padding-right:15px;
-}
-.liori_menu a:hover {
-	font-family: Arial, sans-serif;
-	font-size: 15px;
-	color: #477da3;
-	text-transform: uppercase;
-	text-decoration: underline;
-	font-weight: bold;
-	height: 46px;
-}
-.liori_line {
+.usjewelry_line {
 	background-color: #d4e8fc;
 }
-.liori_spec_text {
+.usjewelry_spec_text {
 	font-family: Arial, sans-serif;
 	font-size: 15px;
 	height: 25px;
 }
-.liori_tab_bg {
-	padding-top: 30px;
-	padding-left: 20px;
-	font-family: Arial, sans-serif;
-	font-size: 13px;
-	height: 25px;
-}
-.liori_browse_title {
-	padding-left:20px;
-	font-family: "Myriad Pro",PTSansCaptionRegular, arial, helvetica, sans-serif;
-	font-size: 24px;
-}
-.liori_phone, .liori_phone a {
-	font-family: "Myriad Pro",PTSansCaptionRegular, arial, helvetica, sans-serif;
-	font-size: 17px;
-	color: #8e8e8e;
-	text-transform: uppercase;
-	padding-top: 20px;
-}
-.liori_phone_number, .liori_phone_number a {
-	font-family: "Myriad Pro",PTSansCaptionRegular, arial, helvetica, sans-serif;
-	font-size: 17px;
-	color: #477da3;
-	text-transform: uppercase;
-}
-.liori_search {
-	height: 72px;
-	padding-top: 14px;
-}
-.liori_search_box {
-	height: 30px;
-	width: 210px;
-	padding: 0;
-	position: relative;
-	left: 0;
-	outline: none;
-	border: 0;
-	font-size: 12px;
-	padding-left: 10px;
-	color: #656565;
-}
-.liori_photo {
+.usjewelry_photo {
 	-moz-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	-webkit-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	-o-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
@@ -108,7 +26,7 @@
 	vertical-align: middle;
 	border: 1px solid #E1E3E6;
 }
-.liori_gallery {
+.usjewelry_gallery {
 	-moz-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	-webkit-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
 	-o-box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
@@ -152,6 +70,10 @@
 	border:0;
 	background-position-y: 42px;
 	cursor: pointer;
+	opacity: 0.8;
+}
+.prev_view:hover {
+	opacity: 1;
 }
 .next_view {
 	background:url(images/right_arrow.png) no-repeat center 0px;
@@ -160,6 +82,10 @@
 	border:0;
 	background-position-y: 42px;
 	cursor: pointer;
+	opacity: 0.8;
+}
+.next_view:hover {
+	opacity: 1;
 }
 .item_desc {
 	margin-top: 50px;
@@ -197,7 +123,7 @@
 	border-style: solid;
 	border-width: 1px;
 	border-color: #e1e1e1;
-	border-top-color: #477da3;
+	border-top-color: #555555;
 	border-top-width: 4px;
 	height: 32px;
 	border-bottom-width:0px;
