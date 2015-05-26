@@ -8,21 +8,93 @@
     <script src="jquery.nivo.slider/jquery.nivo.slider.js" type="text/javascript"></script>
 	<link href="jquery.nivo.slider/nivo-slider.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="jquery.nivo.slider/themes/default/default.css" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="http://www.lioridiamonds.com/ebay/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="product.css">
 	<script type="text/javascript">
-		$(window).load(function() {
-			$('#slider').nivoSlider();
-			$('.searchbox').on('click', function() {
+		var ProductDetails = {
+			CountPics: "",
+			CurrentPicNum: 1,
+			Init: function () {
+				$(window).load(function() {
+					$('#slider').nivoSlider();
+				});
 				
-			});
-			
-			$("#ddmenu ul li").hover(function() {
-				$("#ddmenu ul li").removeClass('over');
-				$(this).addClass('over');
-			}, function() {
-				$("#ddmenu ul li").removeClass('over');
-			});
-		});
+				$(document).ready(function() {
+					$("#ddmenu ul li").hover(function() {
+						$("#ddmenu ul li").removeClass('over');
+						$(this).addClass('over');
+					}, function() {
+						$("#ddmenu ul li").removeClass('over');
+					});
+					//search
+					$('.searchbox').on('click', function() {
+						
+					});
+					//count pics
+					ProductDetails.CountPics = $('.thumb_pic img').length;
+					//zoom view 
+					$(".thumb_pic").click(function () {
+						ProductDetails.LoadPic(this);
+					});
+					$(".zoomview").click(function() {
+						$(this).next(".thumb_pic").click();
+					});
+					//prev zoom view
+					$(".prev_view").click(function() {
+						ProductDetails.LoadPicPrev();
+					});
+					//next zoom view
+					$(".next_view").click(function() {
+						ProductDetails.LoadPicNext();
+					});
+					//tabs
+					
+				});
+			},
+			LoadPic: function(elem) {
+				var currentImgUrl = $('.zoom_view img').attr('src');
+				var src = $(elem).find('img').attr('src');
+				
+				if (src && src != currentImgUrl) {
+					$('.zoom_view img').fadeOut(function() {
+						$('.zoom_view img').attr('src', src);
+						$('.zoom_view img').fadeIn();
+					});
+					ProductDetails.CurrentPicNum = $(elem).find('img').attr('pic_num');
+				}
+			},
+			LoadPicNext: function () {
+				var currentImgUrl = $('.zoom_view img').attr('src');
+				var next_num = (ProductDetails.CurrentPicNum >= ProductDetails.CountPics) ? 1 : parseInt(ProductDetails.CurrentPicNum) + 1;
+				ProductDetails.CurrentPicNum = next_num;
+				var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
+				if (img_src) {
+					$('.zoom_view img').fadeOut(function() {
+						$('.zoom_view img').attr('src', img_src);
+						$('.zoom_view img').fadeIn();
+					});
+				}
+			},
+			LoadPicPrev: function() {
+				var currentImgUrl = $('.zoom_view img').attr('src');
+				var next_num = (ProductDetails.CurrentPicNum == 1) ? ProductDetails.CountPics : parseInt(ProductDetails.CurrentPicNum) - 1;
+				ProductDetails.CurrentPicNum = next_num;
+				var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
+				if (img_src) {
+					$('.zoom_view img').fadeOut(function() {
+						$('.zoom_view img').attr('src', img_src);
+						$('.zoom_view img').fadeIn();
+					});
+				}
+			},
+			ChangeTab: function(tab_num) {
+				$(".ebaytab.tabactive").removeClass("tabactive").addClass("tabinactive");
+				$("#tab" + tab_num).addClass("tabactive").removeClass("tabinactive");
+				$("#content div").hide();
+				$("#content" + tab_num).fadeIn();
+			}
+		};
+		
+		ProductDetails.Init();
 	</script>
 </head>
 <body>
@@ -65,49 +137,45 @@
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
-                        <h3>Lorem Ipsum</h3>
-                        <a href="#">Dolor sit amet</a>
-                        <a href="#">Consectetur elit</a>
-                        <a href="#">Etiam massa</a>
-                        <a href="#">Suscipit sapien</a>
-                        <a href="#">Quis turpis</a>
-                        <a href="#">Web Menu Builder</a>
-                        <a href="#">Quos torpusior</a>
-                        <a href="#">Velit a dapibus</a>
-                    </div>
-                    <div class="column">
-                        <h3>Etiam Massa</h3>
-                        <a href="#">Sed interdum</a>
-                        <a href="#">Fringilla congue</a>
-                        <a href="#">Dolor nisl auctor</a>
-                        <a href="#">Quisque dictum</a>
-                        <a href="#">Porttitor</a>
-                        <a href="#">Tellus ullamcorper</a>
-                        <a href="#">Orci quis</a>
+                        <h3>Engagement Rings</h3>
+                        <a href="#">Our Exclusive Engagement Rings</a>
+                        <a href="#">Solitaire Engagement Rings</a>
+                        <a href="#">Three Stone Engagement Rings</a>
+                        <a href="#">Round Cut Diamond Engagement Rings</a>
+                        <a href="#">Princess Cut Diamond Engagement Rings</a>
+                        <a href="#">Fancy Cut Engagement Rings</a>
+                        <a href="#">Fancy Color Engagement Rings</a>
+                        <a href="#">Engagement/Wedding Ring Sets</a>
                     </div>
                     <div class="column mayHide">
-                        <br /><img src="images/img1.jpg" />
+                        <br /><img src="images/EngagementRings.jpg" />
                     </div>
                 </div>
             </div>
         </li>
-        <li class="no-sub"><a class="top-heading" href="http://www.google.com">Wedding Bands</a></li>
         <li>
-            <a class="top-heading" href="http://www.microsoft.com">Earrings</a>
+			<a class="top-heading" href="http://www.google.com">Wedding Bands</a>
 			<i class="caret"></i>            
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
-                        <h3>Vestibulum Ut</h3>
-                        <a href="#">Nunc pharetra</a>
-                        <a href="#">Vestibulum ante</a>
-                        <a href="#">Nulla id laoreet</a>
-                        <a href="#">Elementum blandit</a>
-                        <a href="#">Quisque dictum</a>
-                        <a href="#">Ullamcorper</a>
-                        <a href="#">Duis ut mauris</a>
-                        <a href="#">Vel faucibus mollis</a>
-                        <a href="#">Quisque tempor</a>
+                        <h3>Wedding Bands</h3>
+                        <a href="#">Women's Wedding Bands</a>
+                        <a href="#">Men's Wedding Bands</a>
+                    </div>
+                </div>
+            </div>
+		</li>
+        <li>
+            <a class="top-heading" href="http://www.microsoft.com">Diamond Earrings</a>
+			<i class="caret"></i>            
+            <div class="dropdown">
+                <div class="dd-inner">
+                    <div class="column">
+                        <h3>Diamond Earrings</h3>
+                        <a href="#">Diamond Studs</a>
+                        <a href="#">Huggie & Hoop</a>
+						<a href="#">Dangle & Chandelier</a>
                     </div>
                 </div>
             </div>
@@ -118,67 +186,37 @@
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
-                        <h3>Pellentesque</h3>
+                        <h3>Pendants & Necklaces</h3>
                         <div>
-                            <a href="#">Fermentum ut nulla</a>
-                            <a href="#">Duis ut mauris</a>
-                            <a href="#">Quisque tempor</a>
-                        </div>
-                        <h3>Volutpat</h3>
-                        <div>
-                            <a href="#">Quisque dictum</a>
-                            <a href="#">Nulla scelerisque</a>
-                            <a href="#">hendrerit tincidunt</a>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <h3>Suspendisse</h3>
-                        <div>
-                            <a href="#">Suspendisse potenti</a>
-                            <a href="#">Curabitur in mauris</a>
-                            <a href="#">Phasellus ultrices</a>
-                            <a href="#">Quisque ornare</a>
-                            <a href="#">Vestibulum</a>
-                            <a href="#">Vitae tempus risus</a>
-                            <a href="#">Proin sed magna</a>
-                            <a href="#">Etiam aliquet</a>
+                            <a href="#">Diamond Pendants</a>
+                            <a href="#">Love Pendants</a>
+                            <a href="#">Religious Pendants</a>
+							<a href="#">Diamond Necklaces</a>
                         </div>
                     </div>
                     <div class="column mayHide">
-                        <br /><img src="images/img2.jpg" />
+                        <br /><img src="images/PendantsNecklaces.jpg" />
                     </div>
                 </div>
             </div>
-        </li>
-        <li class="no-sub">
-            <a class="top-heading" href="#">Bracelets</a>
         </li>
         <li>
-            <span class="top-heading">Daily Deal</span>
-			<i class="caret"></i>           
-            <div class="dropdown right-aligned">
+			<span class="top-heading">Bracelets</span>
+			<i class="caret"></i>            
+            <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
-                        <h3>Nam a leo</h3>
-                        <a href="#">Vel faucibus leo</a>
-                        <a href="#">Duis ut mauris</a>
-                        <a href="#">In tempus semper</a>
-                        <a href="#">laoreet erat</a>
-                        <a href="#">Hendrerit tincidunt</a>
-                        <a href="#">Nulla scelerisque</a>
-                    </div>
-                    <div class="column">
-                        <h3>Proin iaculis</h3>
-                        <a href="#">In tempus semper</a>
-                        <a href="#">Hendrerit tincidunt</a>
-                        <a href="#">Duis ut mauris</a>
-                        <a href="#">pretium amet</a>
-                        <a href="#">Nulla scelerisque</a>
-                        <a href="#">Vel faucibus leo</a>
+                        <h3>Bracelets</h3>
+                        <a href="#">Diamond Ladies' Bracelets</a>
+						<a href="#">Diamond Bungle Bracelets</a>
+						<a href="#">Men's Diamond Bracelets</a>
+						<a href="#">Gold Bracelets</a>
+						<a href="#">Sterling Silver Bracelets</a>
                     </div>
                 </div>
             </div>
         </li>
+		<li class="no-sub"><a class="top-heading" href="">Daily Deal</a></li>
 		<li>
 			
 		</li>
@@ -186,7 +224,7 @@
 </nav>
 <div class="content">
 	<div class="product">
-		<div class="product_title">1.25 Carat Custom Curve Matching Diamond Wedding Band Ring 18k White Gold</div>
+		<div class="product_title">Solitaire Round Cut Diamond Engagement Ring 14k White Gold Band 0.59ct I/SI2</div>
 		<!-- PRODUCT DETAILS -->
 		<div class="product_content">
 			<table width="951" cellpadding="0" cellspacing="0" border="0">
@@ -194,22 +232,46 @@
 					<td>
 						<table width="951" cellpadding="0" cellspacing="0" border="0">
 							<tr>
-								<td width="547">
+								<!--IMAGE-->
+								<td width="547" valign="top">
 									<table width="547" cellpadding="0" cellspacing="0" border="0">
 										<tr>
 											<td>
 												<table width="521" cellpadding="0" align="center" border="0" cellspacing="0" style="margin-right:25px;">
 													<tr>
-														<td valign="top" align="center" class="liori_photo">
-															<center><img src="http://www.lioridiamonds.com/media/catalog/product/w/b/wbe-31-1_2.jpg" width="510" border="0" id="eBwell" name="eBwell"></center>
+														<td valign="top" align="center" class="liori_photo zoom_view">
+															<center>
+																<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" width="510" border="0" id="eBwell" name="eBwell">
+															</center>
 														</td>
 													</tr>
 													<tr>
 														<td valign="top" align="center" class="liori_gallery">
 															<table width="521" cellpadding="0" align="center" border="0" cellspacing="0">
 																<tr>
-																	<td style="vertical-align:middle;height:54px;">
-																		<input class="left" style="background:url(http://www.lioridiamonds.com/ebay/images/gallery-leftarrow.jpg) no-repeat center 0px;height:168px;width:54px;border:0;" type="button" value="" onclick="ChangePic(-1);"></td><td style="vertical-align:middle;"><a href="javascript:LoadPic(0);"><img src="http://www.lioridiamonds.com/media/catalog/product/w/b/wbe-31-1_2.jpg" width="120" border="0"></a></td><td style="vertical-align:middle;"><a href="javascript:LoadPic(1);"><img src="http://www.lioridiamonds.com/media/catalog/product/w/b/wbe-31-3_2.jpg" width="120" border="0"></a></td><td style="vertical-align:middle;"><a href="javascript:LoadPic(2);"><img src="http://www.lioridiamonds.com/media/catalog/product/w/b/wbe-31-2_2.jpg" width="120" border="0"></a></td><td align="right" style="vertical-align:middle;height:54px;"><input type="button" style="background:url(http://www.lioridiamonds.com/ebay/images/gallery-rightarrow.jpg) no-repeat center 0px;height:168px;width:56px;border:0;" class="right" value="" onclick="ChangePic(+1);">
+																	<td>
+																		<div class="prev_view"></div>
+																	</td>
+																	<td class="small_img_container" style="vertical-align:middle;">
+																		<a class="zoomview" onclick="">ZOOM</a>	
+																		<a href="javascript:(0);" class="thumb_pic">
+																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" pic_num="1" width="120" border="0">
+																		</a>
+																	</td>
+																	<td class="small_img_container" style="vertical-align:middle;">
+																		<a class="zoomview" onclick="">ZOOM</a>
+																		<a href="javascript:(0);" class="thumb_pic">
+																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315449_o.jpg" pic_num="2" width="120" border="0">
+																		</a>
+																	</td>
+																	<td class="small_img_container" style="vertical-align:middle;">
+																		<a class="zoomview" onclick="">ZOOM</a>
+																		<a href="javascript:(0);" class="thumb_pic">
+																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315464_o.jpg" pic_num="3" width="120" border="0">
+																		</a>
+																	</td>
+																	<td align="right">
+																		<div class="next_view"></div>
 																	</td>
 																</tr>
 															</table>
@@ -220,17 +282,12 @@
 										</tr>
 									</table>
 								</td>
+								<!--IMAGE END-->
+								<!--DESCRIPTION-->
 								<td valign="top">
-									<table width="404" cellpadding="0" cellspacing="0" border="0">
-										<tr>
-											<td>
-												<img src="http://www.lioridiamonds.com/ebay/images/blank.gif" height="3" width="1">
-											</td>
-										</tr>
-									</table>
 									<table width="404" border="0" cellspacing="0" cellpadding="0" id="diamondspecs">
 										<tr>
-											<td height="30" class="liori_spec_title">Diamond Specifications:</td>
+											<td height="30" class="liori_spec_title">Center Diamond Specifications:</td>
 										</tr>
 									</table>
 									<table width="404" border="0" cellspacing="0" cellpadding="2" id="diamondspecsbody">
@@ -246,6 +303,10 @@
 											<td height="30" valign="middle" class="liori_spec_text">1.25 Ctw</td>
 										</tr>
 										<tr>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Measurement:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
+										</tr>
+										<tr>
 											<td width="150" height="30" valign="middle" class="liori_spec_text">Color:</td>
 											<td height="30" valign="middle" class="liori_spec_text">F</td>
 										</tr>
@@ -259,60 +320,175 @@
 									</table>
 									<table width="404" border="0" cellspacing="0" cellpadding="0">
 										<tr>
-											<td height="30" colspan="2" valign="middle" class="liori_spec_title">Metal Specifications:</td>
+											<td height="30" colspan="2" valign="middle" class="liori_spec_title">Side Diamond Specifications:</td>
 										</tr>
 										<tr>
 											<td height="1" colspan="2" class="liori_spec_text">&nbsp;</td>
 										</tr>
 										<tr>
-											<td width="150" height="30" valign="middle" class="liori_spec_text">Type:</td>
-											<td height="30" valign="middle" class="liori_spec_text">18k White Gold</td>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Shape:</td>
+											<td height="30" valign="middle" class="liori_spec_text">#shapesd#</td>
 										</tr>
 										<tr>
-											<td width="150" height="30" valign="middle" class="liori_spec_text">Setting:</td>
-											<td height="30" valign="middle" class="liori_spec_text">Micro Pave</td>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Carat Weight:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
 										</tr>
 										<tr>
-											<td width="150" height="30" valign="middle" class="liori_spec_text">Size:</td>
-											<td height="30" valign="middle" class="liori_spec_text">Size 6.25</td>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Color:</td>
+											<td height="30" valign="middle" class="liori_spec_text">#diamond_colorsd#</td>
+										</tr>
+										<tr>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Clarity:</td>
+											<td height="30" valign="middle" class="liori_spec_text">#ebay_claritysd#</td>
 										</tr>
 										<tr>
 											<td height="5" colspan="2" class="liori_spec_text">&nbsp;</td>
 										</tr>
 										<tr>
-											<td height="30" colspan="2" valign="middle" class="liori_spec_title">Additional Information:</td>
+											<td height="30" colspan="2" valign="middle" class="liori_spec_title">General Information:</td>
 										</tr>
 										<tr>
 											<td height="1" colspan="2" class="liori_spec_text">&nbsp;</td>
 										</tr>
 										<tr>
-											<td width="150" height="30" valign="middle" class="liori_spec_text">Style:</td>
-											<td height="30" valign="middle" class="liori_spec_text">WBE-031</td>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Gem Type:</td>
+											<td height="30" valign="middle" class="liori_spec_text">100% Natural Diamonds</td>
+										</tr>
+										<tr>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Metal Type:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
+										</tr>
+										<tr>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Gram Weight:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
+										</tr>
+										<tr>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Size:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
 										</tr>
 										<tr>
 											<td width="150" height="30" valign="middle" class="liori_spec_text">Certificate:</td>
-											<td height="30" valign="middle" class="liori_spec_text">AGI Certified</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
 										</tr>
 										<tr>
 											<td width="150" height="30" valign="middle" class="liori_spec_text">Retail Appraisal:</td>
-											<td height="30" valign="middle" class="liori_spec_text">$4250</td>
-										</tr>
-									</table>
-									<table width="404" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td class="liori_spec_title"><span>Item Description:</span></td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
 										</tr>
 										<tr>
-											<td height="5" colspan="2">&nbsp;</td>
+											<td width="150" height="30" valign="middle" class="liori_spec_text">Style:</td>
+											<td height="30" valign="middle" class="liori_spec_text">--</td>
 										</tr>
 										<tr>
-											<td class="liori_spec_text"><p>Here is a custom wedding band with a lot of sparkle!  Gorgeous invisible set princess cut diamonds line the band.  Glittering micro pave round diamonds are set in the curve of the band, as well as on the bottom for added detail.  The curve is designed to fit perfectly around your engagement ring.  This beautiful matching wedding ring is set in 18k white gold.</p>
-											</td>
+											<td height="1" colspan="2" class="liori_spec_text">&nbsp;</td>
 										</tr>
 									</table>
 								</td>
+								<!--DESCRIPTION END-->
+							</tr>
+							<tr>
+								<td colspan="2">
+									<div class="item_desc">
+										<div class="item_desc_title">
+											Item Description:
+										</div>
+										<div class="item_desc_content">
+											Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+										</div>
+									</div>
+								</td>
 							</tr>
 						</table>
+					</td>
+				</tr>
+			</table>
+			<table width="951" cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td> 
+						<div style="width:100%;padding-left:20px;">
+							<div style="float:left" class="ebaytab tabactive" id="tab1" onclick="ProductDetails.ChangeTab(1)">Warranty</div>
+							<div style="float:left" class="ebaytab tabinactive" id="tab2" onclick="ProductDetails.ChangeTab(2)">Shipping Policy</div>
+							<div style="float:left" class="ebaytab tabinactive" id="tab3" onclick="ProductDetails.ChangeTab(3)">14 Day Return</div>
+							<div style="float:left" class="ebaytab tabinactive" id="tab4" onclick="ProductDetails.ChangeTab(4)">Payment Policy</div>
+							<div style="float:left" class="ebaytab tabinactive" id="tab5" onclick="ProductDetails.ChangeTab(5)">Gift Box</div>
+							<br><br>
+							<div style="clear:both"></div> 
+							
+							<div id="content">
+								<div id="content1">
+									<h3>Warranty</h3>
+									<p>US Jewelry Factory ring may be re-sized during 6-month period free of charge. </p>
+									<p>
+										US Jewelry Factory will restore the original finish during 6-month period free of charge. 
+										Any defect in materials or workmanship that are present at the time of original delivery will be repaired at no charge. 
+										Genuine center diamond is not covered under this warranty. 
+									</p>
+									<p>In the unlikely event there is ever a problem with our product, you can send it for inspection. 
+									If the problem is deemed to be caused by a manufacturer defect, we will repair or replace this piece of jewelry without charge. If it is deemed the problem was by everyday wear or tear, then we will only charge you cost for any material. In addition US Jewelry Factory will inspect, clean and refinish your jewelry upon request. This lifetime limited warranty is void if your US Jewelry Factory product is repaired by anyone other than US Jewelry Factory.</p>
+								</div>
+								<div id="content2" style="display: none;">
+									<h3>Domestic</h3>
+									<p>All items will be shipped upon either receipt or approval of payment within 1-2 business days. Orders for rings may be delayed due to ring sizing. We offer Free USPS shipping which includes insurance to anywhere in the United States. Next day USPS Express Mail is available, buyer will be responsible for cost of shipping. </p>
+									<h3>International</h3>
+									<p>For International shipping we offer USPS Registered or Priority Mail. Estimated Delivery time is 6-10 business days. </p>
+									<p>Import duties, taxes and charges are not included in the item price or shipping charges. These charges are the buyer's responsibility. </p>
+									<p>Please check with your country's customs office to determine what these additional costs will be. </p>
+									<p>For rush International shipping costs please contact us:</p>
+									<p>
+										Toll Free: 877-777-7670
+										Direct Line: 212-819-0075
+									</p>
+								</div>
+								<div id="content3" style="display: none;">
+									<h3>Payment / Return Policy </h3>
+									<p>All items will be shipped upon either receipt or approval of payment within 1-2 business days. Orders for rings may be delayed due to ring sizing. We offer Free USPS & UPS shipping which includes insurance to anywhere in the United States. Next day USPS or UPS Express Mail is available; buyer will be responsible for cost of shipping.</p>
+									<p>If for any reason you are not completely satisfied and wish to return your purchase, we will refund 100% of the original price. All Returns will be accepted within 14 days of the customer receiving the item. Products which have been modified by another 3rd party jeweler or abused will not be accepted for exchange or refunds. We do not refund any shipping expenses.</p>
+									<h3>Our Return Process</h3>
+									<p>Once your returned item is received and accepted, your refund will be processed shortly. Our Quality Assurance department will review the returned item. Any items that show signs of wear or have been altered, resized, or damaged cannot be accepted for return.</p>
+									<p>Returns with No Return Authorization Number, and packages that are improperly packaged or uninsured will be refused receipt.</p>
+									<p>To return your purchase, please follow these simple steps:<p>
+									<p>1. Email us to receive an authorization number.</p>
+									<p>2. Pack the item to be returned and include your shipping document.</p>
+									<p>3. Insure your package. You can ship it via any carrier. Be sure to ship your item fully insured, and request a signature for confirmation that your shipment has reached its destination.</p>
+									<p>Please ship all Returns to the following address: </p>
+									<h3>US Jewelry Factory - Returns Department</h3>
+									<p>
+										71 West 47 Street<br/>
+										Suite 402<br/>
+										New York, NY 10036
+									</p>
+									<p>If you have any questions about our return procedure, please contact us:</p>
+									<p>
+										Toll Free: 877-777-7670 <br/>
+										Direct Line: 212-819-0075
+									</p>
+									<p>US Jewelry Factory will not be responsible for loss or damage of return shipments.</p>
+								</div>
+								<div id="content4" style="display: none;">
+									<h3>Payment Policy</h3>
+									<p>All items will be shipped upon either receipt or approval of payment within 1-2 business days. Orders for rings may be delayed due to ring sizing. We offer Free USPS shipping which includes insurance to anywhere in the United States. Next day USPS Express Mail, FedEx is available, buyer will be responsible for cost of shipping. </p>
+									<p>If for any reason you are not completely satisfied and wish to return your purchase, we will refund 100% of the original price. Products which have been modified by another 3rd party jeweler or abused will not be accepted for exchange or refunds.  We do not refund any shipping expenses.</p>
+								</div>
+								<div id="content5" style="display: none;">
+									<h3>Gift Box</h3>
+									<p>
+										Taking the best of care to your treasure we gently display in one of our stunning gift box. After the finishing touches have been made we pay the best attention to packing it into a secure box and filling that cushion your jewelry on the journey to it new owner. 
+									</p>
+									<center>
+										<img src="http://www.advancedebaydesigns.com/clients/usjewelry_factory/template/box.jpg">
+									</center>
+								</div>
+								<div id="content6" style="display: none;">
+									<p>We accept returns 14 days from the date of receipt, money back guaranteed.</p>
+									<p>No re-stocking fees or penalties. Certain restrictions do apply to custom orders.</p>
+									<p>&nbsp;</p>
+									<p>Please check with one of our representatives before placing a custom order.</p>
+									<p>No hassles. No hidden charges.</p>
+									<p>&nbsp;</p>
+									<p class="phontxt31">100% Guaranteed Satisfaction or Full Refund.</p>
+								</div>
+							</div>
+						</div>
+						<!-- end of Tabs -->
 					</td>
 				</tr>
 			</table>
