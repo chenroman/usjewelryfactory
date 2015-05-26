@@ -10,21 +10,7 @@ body {
 	background-image: url('images/bg3.jpg');
 	background-attachment: fixed;
 	background-position: 50% 0px;
-	*/
-
-	/* IE10 Consumer Preview */ 
-	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D4E8FC 100%);
-	/* Mozilla Firefox */ 
-	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #D4E8FC 100%);
-	/* Opera */ 
-	background-image: -o-linear-gradient(top, #FFFFFF 0%, #D4E8FC 100%);
-	/* Webkit (Safari/Chrome 10) */ 
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #D4E8FC));
-	/* Webkit (Chrome 11+) */ 
-	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #D4E8FC 100%);
-	/* W3C Markup, IE10 Release Preview */ 
-	background-image: linear-gradient(to bottom, #FFFFFF 0%, #D4E8FC 100%);
-	
+	*/	
 }
 
 .theme-default #slider {

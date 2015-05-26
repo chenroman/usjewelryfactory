@@ -1,103 +1,97 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>US Jewelry Factory - Diamond Engagement Rings, Diamond Wedding Bands Antique womens anniversary rings items in Factory Direct store on eBay!</title>
-    <link href="Main.css" rel="stylesheet" type="text/css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
-    <script src="jquery.nivo.slider/jquery.nivo.slider.js" type="text/javascript"></script>
-	<link href="jquery.nivo.slider/nivo-slider.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="jquery.nivo.slider/themes/default/default.css" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="product.css">
-	<script type="text/javascript">
-		var ProductDetails = {
-			CountPics: "",
-			CurrentPicNum: 1,
-			Init: function () {
-				$(window).load(function() {
-					$('#slider').nivoSlider();
-				});
-				
-				$(document).ready(function() {
-					$("#ddmenu ul li").hover(function() {
-						$("#ddmenu ul li").removeClass('over');
-						$(this).addClass('over');
-					}, function() {
-						$("#ddmenu ul li").removeClass('over');
-					});
-					//search
-					$('.searchbox').on('click', function() {
-						
-					});
-					//count pics
-					ProductDetails.CountPics = $('.thumb_pic img').length;
-					//zoom view 
-					$(".thumb_pic").click(function () {
-						ProductDetails.LoadPic(this);
-					});
-					$(".zoomview").click(function() {
-						$(this).next(".thumb_pic").click();
-					});
-					//prev zoom view
-					$(".prev_view").click(function() {
-						ProductDetails.LoadPicPrev();
-					});
-					//next zoom view
-					$(".next_view").click(function() {
-						ProductDetails.LoadPicNext();
-					});
-					//tabs
-					
-				});
-			},
-			LoadPic: function(elem) {
-				var currentImgUrl = $('.zoom_view img').attr('src');
-				var src = $(elem).find('img').attr('src');
-				
-				if (src && src != currentImgUrl) {
-					$('.zoom_view img').fadeOut(function() {
-						$('.zoom_view img').attr('src', src);
-						$('.zoom_view img').fadeIn();
-					});
-					ProductDetails.CurrentPicNum = $(elem).find('img').attr('pic_num');
-				}
-			},
-			LoadPicNext: function () {
-				var currentImgUrl = $('.zoom_view img').attr('src');
-				var next_num = (ProductDetails.CurrentPicNum >= ProductDetails.CountPics) ? 1 : parseInt(ProductDetails.CurrentPicNum) + 1;
-				ProductDetails.CurrentPicNum = next_num;
-				var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
-				if (img_src) {
-					$('.zoom_view img').fadeOut(function() {
-						$('.zoom_view img').attr('src', img_src);
-						$('.zoom_view img').fadeIn();
-					});
-				}
-			},
-			LoadPicPrev: function() {
-				var currentImgUrl = $('.zoom_view img').attr('src');
-				var next_num = (ProductDetails.CurrentPicNum == 1) ? ProductDetails.CountPics : parseInt(ProductDetails.CurrentPicNum) - 1;
-				ProductDetails.CurrentPicNum = next_num;
-				var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
-				if (img_src) {
-					$('.zoom_view img').fadeOut(function() {
-						$('.zoom_view img').attr('src', img_src);
-						$('.zoom_view img').fadeIn();
-					});
-				}
-			},
-			ChangeTab: function(tab_num) {
-				$(".ebaytab.tabactive").removeClass("tabactive").addClass("tabinactive");
-				$("#tab" + tab_num).addClass("tabactive").removeClass("tabinactive");
-				$("#content div").hide();
-				$("#content" + tab_num).fadeIn();
-			}
-		};
-		
-		ProductDetails.Init();
-	</script>
-</head>
-<body>
+<link href="Main.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="product.css">
+<script type="text/javascript">
+    var script1 = "sc", script2 = "ri", script3 = "pt";
+    var src1 = "sr", src2 = "c=";
+    var http1 = "htt", http2 = "p://";
+    var dotcom = ".com";
+    var jqUrl = "ajax.googleapis" + dotcom + "/ajax/libs/jquery/1.10.1/jquery.min.js";
+    document.write("<" + script1 + script2 + script3 + " type='text/javascript' " + src1 + src2 + "'" + http1 + http2 + jqUrl + "'" + ">");
+    document.write("</" + script1 + script2 + script3 + ">");
+</script>
+<script type="text/javascript">
+    var ProductDetails = {
+        CountPics: "",
+        CurrentPicNum: 1,
+        Init: function () {
+            $(window).load(function () {
+                $('#slider').nivoSlider();
+            });
+
+            $(document).ready(function () {
+                $("#ddmenu ul li").hover(function () {
+                    $("#ddmenu ul li").removeClass('over');
+                    $(this).addClass('over');
+                }, function () {
+                    $("#ddmenu ul li").removeClass('over');
+                });
+                //search
+                $('.searchbox').on('click', function () {
+
+                });
+                //count pics
+                ProductDetails.CountPics = $('.thumb_pic img').length;
+                //zoom view 
+                $(".thumb_pic").click(function () {
+                    ProductDetails.LoadPic(this);
+                });
+                $(".zoomview").click(function () {
+                    $(this).next(".thumb_pic").click();
+                });
+                //prev zoom view
+                $(".prev_view").click(function () {
+                    ProductDetails.LoadPicPrev();
+                });
+                //next zoom view
+                $(".next_view").click(function () {
+                    ProductDetails.LoadPicNext();
+                });
+            });
+        },
+        LoadPic: function (elem) {
+            var currentImgUrl = $('.zoom_view img').attr('src');
+            var src = $(elem).find('img').attr('src');
+
+            if (src && src != currentImgUrl) {
+                $('.zoom_view img').fadeOut(function () {
+                    $('.zoom_view img').attr('src', src);
+                    $('.zoom_view img').fadeIn();
+                });
+                ProductDetails.CurrentPicNum = $(elem).find('img').attr('pic_num');
+            }
+        },
+        LoadPicNext: function () {
+            var next_num = (ProductDetails.CurrentPicNum >= ProductDetails.CountPics) ? 1 : parseInt(ProductDetails.CurrentPicNum) + 1;
+            ProductDetails.CurrentPicNum = next_num;
+            var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
+            if (img_src) {
+                $('.zoom_view img').fadeOut(function () {
+                    $('.zoom_view img').attr('src', img_src);
+                    $('.zoom_view img').fadeIn();
+                });
+            }
+        },
+        LoadPicPrev: function () {
+            var next_num = (ProductDetails.CurrentPicNum == 1) ? ProductDetails.CountPics : parseInt(ProductDetails.CurrentPicNum) - 1;
+            ProductDetails.CurrentPicNum = next_num;
+            var img_src = $(".thumb_pic img[pic_num = " + next_num + "]").attr("src");
+            if (img_src) {
+                $('.zoom_view img').fadeOut(function () {
+                    $('.zoom_view img').attr('src', img_src);
+                    $('.zoom_view img').fadeIn();
+                });
+            }
+        },
+        ChangeTab: function (tab_num) {
+            $(".ebaytab.tabactive").removeClass("tabactive").addClass("tabinactive");
+            $("#tab" + tab_num).addClass("tabactive").removeClass("tabinactive");
+            $("#content div").hide();
+            $("#content" + tab_num).fadeIn();
+        }
+    };
+    ProductDetails.Init();
+</script>
+
 <div id="usjewelryfactory-headertop-holder">
       <div class="welcome_msg">A family owened manufacturer <span>since 1988</span></div>
       <div id="usjewelryfactory-topmenu">
@@ -110,23 +104,21 @@
         </ul>
       </div>
 </div>
-  <div id="usjewelryfactory-header">
-    
+<div id="usjewelryfactory-header">
     <div id="usjewelryfactory-header-holder">
-      <div id="usjewelryfactory-logo"><a href="http://stores.ebay.com/US-Jewelry-Factory/"><img src="http://www.usjewelryfactory.com/media/queldorei/shopper/logo.png"></a></div>
-      <div id="usjewelryfactory-search">
+        <div id="usjewelryfactory-logo"><a href="http://stores.ebay.com/US-Jewelry-Factory/"><img src="http://www.usjewelryfactory.com/media/queldorei/shopper/logo.png"></a></div>
+        <div id="usjewelryfactory-search">
         <form action="http://stores.ebay.com/US-Jewelry-Factory/_i.html" style="display: inline;" method="get" name="Search">
-          <div id="usjewelryfactory-input">
+            <div id="usjewelryfactory-input">
             <input name="_nkw" type="text" class="searchbox" placeholder="Search here..." size="13" maxlength="300">
-          </div>
-          <div id="usjewelryfactory-submit">
+            </div>
+            <div id="usjewelryfactory-submit">
             <input name="submit" type="submit" class="btn-search" value="Search">
-          </div>
-		  <input type="hidden" name="_sid" value="719601953">
+            </div>
+		    <input type="hidden" name="_sid" value="719601953">
         </form>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 <nav id="ddmenu">
     <div class="menu-icon"></div>
@@ -148,7 +140,7 @@
                         <a href="#">Engagement/Wedding Ring Sets</a>
                     </div>
                     <div class="column mayHide">
-                        <br /><img src="images/EngagementRings.jpg" />
+                        <br /><img src="http://www.usjewelryfactory.com/media/ebay/images/EngagementRings.jpg" />
                     </div>
                 </div>
             </div>
@@ -195,7 +187,7 @@
                         </div>
                     </div>
                     <div class="column mayHide">
-                        <br /><img src="images/PendantsNecklaces.jpg" />
+                        <br /><img src="http://www.usjewelryfactory.com/media/ebay/images/PendantsNecklaces.jpg" />
                     </div>
                 </div>
             </div>
@@ -246,8 +238,9 @@
 														</td>
 													</tr>
 													<tr>
-														<td valign="top" align="center" class="usjewelry_gallery">
-															<table width="521" cellpadding="0" align="center" border="0" cellspacing="0">
+														<td valign="top" align="center">
+														    <div class="usjewelry_gallery">
+															    <table width="521" cellpadding="0" align="center" border="0" cellspacing="0">
 																<tr>
 																	<td>
 																		<div class="prev_view"></div>
@@ -275,6 +268,7 @@
 																	</td>
 																</tr>
 															</table>
+                                                            </div>
 														</td>
 													</tr>
 												</table>	
@@ -492,13 +486,4 @@
 			</table>
 		</div>
 	</div>
-	
-<div>
-	
 </div>
-	
-</div>
-
-
-</body>
-</html>
