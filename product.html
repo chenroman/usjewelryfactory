@@ -42,8 +42,8 @@
                 $(".next_view").click(function () {
                     ProductDetails.LoadPicNext();
                 });
-				//load video
-				$(".play_video").click(function () {
+                //load video
+                $(".play_video").click(function () {
                     ProductDetails.LoadVideo();
                 });
             });
@@ -59,8 +59,8 @@
                 });
                 ProductDetails.CurrentPicNum = $(elem).find('img').attr('pic_num');
             }
-			$(".usjewelry_photo").show();
-			$(".usjewelry_video").hide();
+            $(".usjewelry_photo").show();
+            $(".usjewelry_video").hide();
         },
         LoadPicNext: function () {
             var next_num = (ProductDetails.CurrentPicNum >= ProductDetails.CountPics) ? 1 : parseInt(ProductDetails.CurrentPicNum) + 1;
@@ -72,8 +72,8 @@
                     $('.zoom_view img').fadeIn();
                 });
             }
-			$(".usjewelry_photo").show();
-			$(".usjewelry_video").hide();
+            $(".usjewelry_photo").show();
+            $(".usjewelry_video").hide();
         },
         LoadPicPrev: function () {
             var next_num = (ProductDetails.CurrentPicNum == 1) ? ProductDetails.CountPics : parseInt(ProductDetails.CurrentPicNum) - 1;
@@ -92,10 +92,10 @@
             $("#content div").hide();
             $("#content" + tab_num).fadeIn();
         },
-		LoadVideo: function() {
-			$(".usjewelry_photo").hide();
-			$(".usjewelry_video").show();
-		}
+        LoadVideo: function () {
+            $(".usjewelry_photo").hide();
+            $(".usjewelry_video").show();
+        }
     };
     ProductDetails.Init();
 </script>
@@ -118,17 +118,16 @@
 </div>
 <div id="usjewelryfactory-header">
     <div id="usjewelryfactory-header-holder">
-        
         <div id="usjewelryfactory-search">
-        <form action="http://stores.ebay.com/US-Jewelry-Factory/_i.html" style="display: inline;" method="get" name="Search">
-            <div id="usjewelryfactory-input">
-            <input name="_nkw" type="text" class="searchbox" placeholder="Search here..." size="13" maxlength="300">
-            </div>
-            <div id="usjewelryfactory-submit">
-            <input name="submit" type="submit" class="btn-search" value="Search">
-            </div>
-		    <input type="hidden" name="_sid" value="719601953">
-        </form>
+            <form action="http://stores.ebay.com/US-Jewelry-Factory/_i.html" style="display: inline;" method="get" name="Search">
+                <div id="usjewelryfactory-input">
+                    <input name="_nkw" type="text" class="searchbox" placeholder="Search here..." size="13" maxlength="300"/>
+                </div>
+                <div id="usjewelryfactory-submit">
+                    <input name="submit" type="submit" class="btn-search" value="Search"/>
+                </div>
+                <input type="hidden" name="_sid" value="719601953"/>
+            </form>
         </div>
     </div>
 </div>
@@ -137,7 +136,7 @@
     <ul>
         <li class="full-width">
             <span class="top-heading">Engagement Rings</span>
-			<i class="caret"></i>            
+			<i class="caret"></i>
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
@@ -159,7 +158,7 @@
         </li>
         <li>
 			<a class="top-heading" href="http://www.google.com">Wedding Bands</a>
-			<i class="caret"></i>            
+			<i class="caret"></i>
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
@@ -172,7 +171,7 @@
 		</li>
         <li>
             <a class="top-heading" href="http://www.microsoft.com">Diamond Earrings</a>
-			<i class="caret"></i>            
+			<i class="caret"></i>
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
@@ -186,7 +185,7 @@
         </li>
         <li class="full-width">
             <span class="top-heading">Pendants & Necklaces</span>
-			<i class="caret"></i>           
+			<i class="caret"></i>
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
@@ -199,14 +198,14 @@
                         </div>
                     </div>
                     <div class="column mayHide">
-                        <br /><img src="http://www.usjewelryfactory.com/media/ebay/images/PendantsNecklaces.jpg" />
+                        <br /><img src="http://www.usjewelryfactory.com/media/ebay/images/PendantsNecklaces.jpg" alt="" />
                     </div>
                 </div>
             </div>
         </li>
         <li>
 			<span class="top-heading">Bracelets</span>
-			<i class="caret"></i>            
+			<i class="caret"></i>
             <div class="dropdown">
                 <div class="dd-inner">
                     <div class="column">
@@ -220,9 +219,8 @@
                 </div>
             </div>
         </li>
-		<li class="no-sub"><a class="top-heading" href="">Daily Deal</a></li>
-		<li>
-			
+		<li class="no-sub">
+		    <a class="top-heading" href="">Daily Deal</a>
 		</li>
     </ul>
 </nav>
@@ -245,20 +243,12 @@
 													<tr>
 														<td valign="top" align="center" class="usjewelry_photo zoom_view">
 															<center>
-																<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" width="510" border="0" id="eBwell" name="eBwell">
+															    <img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" width="510" border="0" id="eBwell" name="eBwell" />
 															</center>
 														</td>
-														<td valign="top" align="center" class="usjewelry_video zoom_view">
-																<p align="center"> 
-																	<object height="520" width="521">
-																		<param name="movie" value="http://www.youtube.com/v/-32o_6fCMY4?fs=1&amp;hl=en_US&autoplay=1">
-																		<param name="allowFullScreen" value="true">
-																		<param name="allowscriptaccess" value="always"> 
-																		<embed src="http://www.youtube.com/v/-32o_6fCMY4?fs=1&amp;hl=en_US&autoplay=1" 
-																			type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="520" width="521">
-																	</object>
-																</p> 
-														</td>
+                                                        <td valign="top" align="center" class="usjewelry_video zoom_view">
+                                                            <object width="521" height="520"><param name="movie" value="https://www.youtube.com/v/-32o_6fCMY4?version=3"></param><param name="allowScriptAccess" value="always"></param><embed src="https://www.youtube.com/v/-32o_6fCMY4?version=3" type="application/x-shockwave-flash" allowscriptaccess="always" width="521" height="520"></embed></object>
+                                                        </td>
 													</tr>
 													<tr>
 														<td valign="top" align="center">
@@ -271,27 +261,19 @@
 																	<td class="small_img_container" style="vertical-align:middle;">
 																		<a class="zoomview">ZOOM</a>	
 																		<a href="javascript:(0);" class="thumb_pic">
-																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" pic_num="1" width="120" border="0">
+																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" pic_num="1" width="120" border="0"/>
 																		</a>
 																	</td>
 																	<td class="small_img_container" style="vertical-align:middle;">
 																		<a class="zoomview">ZOOM</a>
 																		<a href="javascript:(0);" class="thumb_pic">
-																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315449_o.jpg" pic_num="2" width="120" border="0">
+																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315449_o.jpg" pic_num="2" width="120" border="0" />
 																		</a>
 																	</td>
-																	<!--
-																	<td class="small_img_container" style="vertical-align:middle;">
-																		<a class="zoomview" onclick="">ZOOM</a>
-																		<a href="javascript:(0);" class="thumb_pic">
-																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315464_o.jpg" pic_num="3" width="120" border="0">
-																		</a>
-																	</td>
-																	-->
 																	<td class="small_img_container" style="vertical-align:middle;">
 																		<a class="play_video"></a>
 																		<a href="javascript:(0);" class="thumb_video">
-																			<img src="http://img.youtube.com/vi/-32o_6fCMY4/2.jpg" width="120" border="0">
+																			<img src="http://img.youtube.com/vi/-32o_6fCMY4/2.jpg" width="120" border="0" />
 																		</a>
 																	</td>
 																	<td align="right">
