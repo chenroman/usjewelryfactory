@@ -14,10 +14,6 @@
         CountPics: "",
         CurrentPicNum: 1,
         Init: function () {
-            $(window).load(function () {
-                $('#slider').nivoSlider();
-            });
-
             $(document).ready(function () {
                 $("#ddmenu ul li").hover(function () {
                     $("#ddmenu ul li").removeClass('over');
@@ -46,6 +42,10 @@
                 $(".next_view").click(function () {
                     ProductDetails.LoadPicNext();
                 });
+				//load video
+				$(".play_video").click(function () {
+                    ProductDetails.LoadVideo();
+                });
             });
         },
         LoadPic: function (elem) {
@@ -59,6 +59,8 @@
                 });
                 ProductDetails.CurrentPicNum = $(elem).find('img').attr('pic_num');
             }
+			$(".usjewelry_photo").show();
+			$(".usjewelry_video").hide();
         },
         LoadPicNext: function () {
             var next_num = (ProductDetails.CurrentPicNum >= ProductDetails.CountPics) ? 1 : parseInt(ProductDetails.CurrentPicNum) + 1;
@@ -70,6 +72,8 @@
                     $('.zoom_view img').fadeIn();
                 });
             }
+			$(".usjewelry_photo").show();
+			$(".usjewelry_video").hide();
         },
         LoadPicPrev: function () {
             var next_num = (ProductDetails.CurrentPicNum == 1) ? ProductDetails.CountPics : parseInt(ProductDetails.CurrentPicNum) - 1;
@@ -87,26 +91,34 @@
             $("#tab" + tab_num).addClass("tabactive").removeClass("tabinactive");
             $("#content div").hide();
             $("#content" + tab_num).fadeIn();
-        }
+        },
+		LoadVideo: function() {
+			$(".usjewelry_photo").hide();
+			$(".usjewelry_video").show();
+		}
     };
     ProductDetails.Init();
 </script>
 
 <div id="usjewelryfactory-headertop-holder">
-      <div class="welcome_msg">A family owened manufacturer <span>since 1988</span></div>
-      <div id="usjewelryfactory-topmenu">
-        <ul>
-          <li><a href="http://stores.ebay.com/US-Jewelry-Factory/aboutus.html">About Us</a></li>
-          <li><a href="http://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=us_jewelry_factory&ftab=AllFeedback">Feedback</a></li>
-          <li><a href="http://stores.ebay.com/US-Jewelry-Factory/education.html">Diamond Education</a></li>
-          <li><a href="http://stores.ebay.com/US-Jewelry-Factory/pages/shipping">Shipping</a></li>
-          <li class="last"><a href="http://stores.ebay.com/US-Jewelry-Factory/policies.html">Store Policies</a></li>
-        </ul>
-      </div>
+	<div id="usjewelryfactory-logo"><a href="http://stores.ebay.com/US-Jewelry-Factory/"><img src="http://www.usjewelryfactory.com/media/queldorei/shopper/logo.png"></a></div>
+	<div class="logo_msg">A family owned manufacturer <span>since 1988</span></div>
+	<div id="usjewelryfactory-topmenu">
+		<ul>
+		  <li><a href="http://stores.ebay.com/US-Jewelry-Factory/aboutus.html">About Us</a></li>
+		  <li><a href="">Contact Us</a></li>
+		  <li><a href="http://feedback.ebay.com/ws/eBayISAPI.dll?ViewFeedback2&userid=us_jewelry_factory&ftab=AllFeedback">Feedback</a></li>
+		  <li><a href="http://stores.ebay.com/US-Jewelry-Factory/education.html">Diamond Education</a></li>
+		  <li class="last"><a href="http://stores.ebay.com/US-Jewelry-Factory/pages/shipping">Ring Size Help</a></li>
+		</ul>
+	</div>
+	<div class="toll_free">
+		Toll Free: 877-777-7670
+	</div>
 </div>
 <div id="usjewelryfactory-header">
     <div id="usjewelryfactory-header-holder">
-        <div id="usjewelryfactory-logo"><a href="http://stores.ebay.com/US-Jewelry-Factory/"><img src="http://www.usjewelryfactory.com/media/queldorei/shopper/logo.png"></a></div>
+        
         <div id="usjewelryfactory-search">
         <form action="http://stores.ebay.com/US-Jewelry-Factory/_i.html" style="display: inline;" method="get" name="Search">
             <div id="usjewelryfactory-input">
@@ -200,7 +212,7 @@
                     <div class="column">
                         <h3>Bracelets</h3>
                         <a href="#">Diamond Ladies' Bracelets</a>
-						<a href="#">Diamond Bungle Bracelets</a>
+						<a href="#">Diamond Bangle Bracelets</a>
 						<a href="#">Men's Diamond Bracelets</a>
 						<a href="#">Gold Bracelets</a>
 						<a href="#">Sterling Silver Bracelets</a>
@@ -236,6 +248,17 @@
 																<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" width="510" border="0" id="eBwell" name="eBwell">
 															</center>
 														</td>
+														<td valign="top" align="center" class="usjewelry_video zoom_view">
+																<p align="center"> 
+																	<object height="520" width="521">
+																		<param name="movie" value="http://www.youtube.com/v/-32o_6fCMY4?fs=1&amp;hl=en_US&autoplay=1">
+																		<param name="allowFullScreen" value="true">
+																		<param name="allowscriptaccess" value="always"> 
+																		<embed src="http://www.youtube.com/v/-32o_6fCMY4?fs=1&amp;hl=en_US&autoplay=1" 
+																			type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="520" width="521">
+																	</object>
+																</p> 
+														</td>
 													</tr>
 													<tr>
 														<td valign="top" align="center">
@@ -246,21 +269,29 @@
 																		<div class="prev_view"></div>
 																	</td>
 																	<td class="small_img_container" style="vertical-align:middle;">
-																		<a class="zoomview" onclick="">ZOOM</a>	
+																		<a class="zoomview">ZOOM</a>	
 																		<a href="javascript:(0);" class="thumb_pic">
 																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315457_o.jpg" pic_num="1" width="120" border="0">
 																		</a>
 																	</td>
 																	<td class="small_img_container" style="vertical-align:middle;">
-																		<a class="zoomview" onclick="">ZOOM</a>
+																		<a class="zoomview">ZOOM</a>
 																		<a href="javascript:(0);" class="thumb_pic">
 																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315449_o.jpg" pic_num="2" width="120" border="0">
 																		</a>
 																	</td>
+																	<!--
 																	<td class="small_img_container" style="vertical-align:middle;">
 																		<a class="zoomview" onclick="">ZOOM</a>
 																		<a href="javascript:(0);" class="thumb_pic">
 																			<img src="http://img.auctiva.com/imgdata/9/5/7/2/9/1/webimg/824315464_o.jpg" pic_num="3" width="120" border="0">
+																		</a>
+																	</td>
+																	-->
+																	<td class="small_img_container" style="vertical-align:middle;">
+																		<a class="play_video"></a>
+																		<a href="javascript:(0);" class="thumb_video">
+																			<img src="http://img.youtube.com/vi/-32o_6fCMY4/2.jpg" width="120" border="0">
 																		</a>
 																	</td>
 																	<td align="right">
@@ -305,7 +336,7 @@
 											<td height="30" valign="middle" class="usjewelry_spec_text">F</td>
 										</tr>
 										<tr>
-											  <td height="30" valign="middle" class="usjewelry_spec_text">Clarity:</td>
+											  <td height="30" valign="middle" class="usjewelry_spec_text">Clarity Cut:</td>
 											  <td height="30" valign="middle" class="usjewelry_spec_text">VS1</td>
 										</tr>
 										<tr>
@@ -332,7 +363,7 @@
 											<td height="30" valign="middle" class="usjewelry_spec_text">#diamond_colorsd#</td>
 										</tr>
 										<tr>
-											<td width="150" height="30" valign="middle" class="usjewelry_spec_text">Clarity:</td>
+											<td width="150" height="30" valign="middle" class="usjewelry_spec_text">Clarity Cut:</td>
 											<td height="30" valign="middle" class="usjewelry_spec_text">#ebay_claritysd#</td>
 										</tr>
 										<tr>
@@ -401,10 +432,7 @@
 						<div style="width:100%;padding-left:20px;">
 							<div class="ebaytab tabactive" id="tab1" onclick="ProductDetails.ChangeTab(1)">Warranty</div>
 							<div class="ebaytab tabinactive" id="tab2" onclick="ProductDetails.ChangeTab(2)">Shipping Policy</div>
-							<div class="ebaytab tabinactive" id="tab3" onclick="ProductDetails.ChangeTab(3)">14 Day Return</div>
-							<div class="ebaytab tabinactive" id="tab4" onclick="ProductDetails.ChangeTab(4)">Payment Policy</div>
-							<div class="ebaytab tabinactive" id="tab5" onclick="ProductDetails.ChangeTab(5)">Gift Box</div>
-
+							<div class="ebaytab tabinactive" id="tab3" onclick="ProductDetails.ChangeTab(3)">14 Days Return</div>
 							<div id="content">
 								<div id="content1">
 									<h3>Warranty</h3>
@@ -454,29 +482,6 @@
 										Direct Line: 212-819-0075
 									</p>
 									<p>US Jewelry Factory will not be responsible for loss or damage of return shipments.</p>
-								</div>
-								<div id="content4" style="display: none;">
-									<h3>Payment Policy</h3>
-									<p>All items will be shipped upon either receipt or approval of payment within 1-2 business days. Orders for rings may be delayed due to ring sizing. We offer Free USPS shipping which includes insurance to anywhere in the United States. Next day USPS Express Mail, FedEx is available, buyer will be responsible for cost of shipping. </p>
-									<p>If for any reason you are not completely satisfied and wish to return your purchase, we will refund 100% of the original price. Products which have been modified by another 3rd party jeweler or abused will not be accepted for exchange or refunds.  We do not refund any shipping expenses.</p>
-								</div>
-								<div id="content5" style="display: none;">
-									<h3>Gift Box</h3>
-									<p>
-										Taking the best of care to your treasure we gently display in one of our stunning gift box. After the finishing touches have been made we pay the best attention to packing it into a secure box and filling that cushion your jewelry on the journey to it new owner. 
-									</p>
-									<center>
-										<img src="http://www.advancedebaydesigns.com/clients/usjewelry_factory/template/box.jpg">
-									</center>
-								</div>
-								<div id="content6" style="display: none;">
-									<p>We accept returns 14 days from the date of receipt, money back guaranteed.</p>
-									<p>No re-stocking fees or penalties. Certain restrictions do apply to custom orders.</p>
-									<p>&nbsp;</p>
-									<p>Please check with one of our representatives before placing a custom order.</p>
-									<p>No hassles. No hidden charges.</p>
-									<p>&nbsp;</p>
-									<p class="phontxt31">100% Guaranteed Satisfaction or Full Refund.</p>
 								</div>
 							</div>
 						</div>

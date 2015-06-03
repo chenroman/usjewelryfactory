@@ -52,7 +52,7 @@ body {
 	margin: 0 auto;
 	padding: 0px;
 }
-.welcome_msg {
+.logo_msg {
 	width: auto;
 	float: left;
 	margin: 16px 0;
@@ -60,8 +60,12 @@ body {
 	font-family: 'Armata', sans-serif;
 	font-size: 12px;
 	color: #747474;
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 100px;
 }
-.welcome_msg span {
+.logo_msg span {
 	color: #ca0092;
 }
 #usjewelryfactory-topmenu {
@@ -119,6 +123,7 @@ body {
 	padding: 0;
 	float: left;
 	text-align: left;
+	margin-top: 17px;
 }
 #usjewelryfactory-logo img {
 	border: 0px;
@@ -126,7 +131,7 @@ body {
 #usjewelryfactory-search {
 	width: 250px;
 	height: 30px;
-	margin: 20px 0 0;
+	margin-bottom: 20px;
 	padding: 0px;
 	float: right;
 	background: none;
@@ -490,6 +495,14 @@ border-bottom:1px solid #333;
 }
 .product_content {
 	margin-top: 30px;
+}
+.toll_free {
+	font-size: 24px;
+	color: #c40b5b;
+	font-family: 'Lato' , Arial, Helvetica, sans-serif;
+	position: absolute;
+	right: 0;
+	margin-top: 50px;
 }
 /*styles for mobile*/
 @media only screen and (max-width: 480px) 
