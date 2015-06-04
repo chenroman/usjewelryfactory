@@ -2,7 +2,7 @@
 	font-family: Arial, sans-serif;
 	font-size: 20px;
 	height: 28px;
-	background: #A9EEED;
+	background: #B5E1FF;
 	vertical-align: middle;
 	padding: 5px;
 }
@@ -163,7 +163,7 @@
 	z-index: 1;
 }
 .tabinactive {	
-	background-color: #A9EEED;
+	background-color: #B5E1FF;
 	color: #000000;
 	height: 30px;
 	border-style: solid;
