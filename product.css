@@ -115,15 +115,22 @@
 	opacity: 1;
 }
 .item_desc {
-	margin-top: 50px;
-	margin-bottom: 40px;
+	position: absolute;
+	height: 180px;
+	margin-top: -168px;
+	right: 0;
+	width: 403px;
+	margin-right: 30px;
+}
+.features_content {
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 .item_desc_title {
 	font-family: Arial, sans-serif;
 	font-size: 20px;
 }
 .item_desc_content {
-	border: 1px solid #CCCCCC;
 	font-family: Arial, sans-serif;
 	font-size: 15px;
 	height: 100px;

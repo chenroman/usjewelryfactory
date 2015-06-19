@@ -59,11 +59,11 @@ body {
 	padding: 0;
 	font-family: 'Armata', sans-serif;
 	font-size: 12px;
-	color: #747474;
+	color: #5E5E5E;
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin-top: 100px;
+	margin-top: 111px;
 }
 .logo_msg span {
 	color: #ca0092;
@@ -129,7 +129,7 @@ body {
 	border: 0px;
 }
 #usjewelryfactory-search {
-	width: 250px;
+	width: 251px;
 	height: 30px;
 	margin-bottom: 20px;
 	padding: 0px;
